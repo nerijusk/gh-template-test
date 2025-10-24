@@ -3,15 +3,21 @@ on:
   workflow_call:
     inputs:
       logLevel:
-        description: 'Log level'
+        description: Log level
         required: false
         type: string
+      some_number:
+        description: Some number
+        required: false
+        type: number
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Run a one-line script
-        run: echo "Hello, ${{ inputs.logLevel }}"
+        run: |
+          echo -e "Hello, ${{ inputs.logLevel }}\nSome number: ${{ inputs.some_number }}"
       - name: Run another one-line script
         continue-on-error: true
-        run: echo "GitHub repo ${{ github.repository }}"
+        run: |
+          echo "GitHub repo ${{ github.repository }}"
