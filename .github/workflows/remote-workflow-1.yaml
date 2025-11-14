@@ -16,8 +16,28 @@ jobs:
     steps:
       - name: Run a one-line script
         run: |
+          set -x
           echo -e "Hello, ${{ inputs.logLevel }}\nSome number: ${{ inputs.some_number }}\n\n"
           env | sort
+          if [[ -n ${{ inputs.logLevel }} ]]; then
+            case ${{ inputs.logLevel }} in
+              debug)
+                echo "Debug mode"
+                ;;
+              info)
+                echo "Info mode"
+                ;;
+              warn)
+                echo "Warning mode"
+                ;;
+              error)
+                echo "Error mode"
+                ;;
+              *)
+                echo "Unknown mode"
+                ;;
+            esac
+          fi
       - name: Run another one-line script
         continue-on-error: true
         run: |
