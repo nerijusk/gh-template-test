@@ -16,7 +16,8 @@ jobs:
     steps:
       - name: Run a one-line script
         run: |
-          echo -e "Hello, ${{ inputs.logLevel }}\nSome number: ${{ inputs.some_number }}"
+          echo -e "Hello, ${{ inputs.logLevel }}\nSome number: ${{ inputs.some_number }}\n\n"
+          env | sort
       - name: Run another one-line script
         continue-on-error: true
         run: |
