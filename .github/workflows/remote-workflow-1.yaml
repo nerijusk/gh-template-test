@@ -13,15 +13,17 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      LOG_LEVEL: ${{ inputs.logLevel }}
     steps:
       - name: Run a one-line script
         run: |
           # set -xeuo pipefail
           set -x
-          echo -e "Hello, ${{ inputs.logLevel }}\nSome number: ${{ inputs.some_number }}\n\n"
+          echo -e "Hello, ${LOG_LEVEL}\nSome number: ${{ inputs.some_number }}\n\n"
           # env | sort
-          if [[ -n "${{ inputs.logLevel }}" ]]; then
-            case "${{ inputs.logLevel }}" in
+          if [[ -n "${LOG_LEVEL}" ]]; then
+            case "${LOG_LEVEL}" in
               debug)
                 echo "Debug mode"
                 ;;
