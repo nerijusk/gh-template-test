@@ -19,7 +19,7 @@ jobs:
           # set -xeuo pipefail
           set -x
           echo -e "Hello, ${{ inputs.logLevel }}\nSome number: ${{ inputs.some_number }}\n\n"
-          env | sort
+          # env | sort
           if [[ -n "${{ inputs.logLevel }}" ]]; then
             case "${{ inputs.logLevel }}" in
               debug)
