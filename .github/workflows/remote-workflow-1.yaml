@@ -18,8 +18,7 @@ jobs:
     steps:
       - name: Run a one-line script
         run: |
-          # set -xeuo pipefail
-          set -x
+          set -xeuo pipefail
           echo -e "Hello, ${LOG_LEVEL}\nSome number: ${{ inputs.some_number }}\n\n"
           # env | sort
           if [[ -n "${LOG_LEVEL}" ]]; then
