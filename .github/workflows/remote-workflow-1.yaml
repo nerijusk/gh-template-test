@@ -1,6 +1,7 @@
 name: input test
 
 on:
+  workflow_dispatch:
   workflow_call:
     inputs:
       logLevel:
