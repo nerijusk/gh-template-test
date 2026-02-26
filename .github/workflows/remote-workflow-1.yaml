@@ -52,4 +52,4 @@ jobs:
       - name: show webhook content
         run: |
           echo "Webhook content:"
-          echo "${{ github.event }}"
+          cat ${{ github.event_path }}
