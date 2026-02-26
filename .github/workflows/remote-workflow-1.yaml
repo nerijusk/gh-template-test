@@ -1,4 +1,5 @@
 name: input test
+
 on:
   workflow_call:
     inputs:
@@ -10,6 +11,7 @@ on:
         description: Some number
         required: false
         type: number
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -44,3 +46,10 @@ jobs:
         continue-on-error: true
         run: |
           echo "GitHub repo ${{ github.repository }}"
+      - name: list env vars
+        run: |
+          env | sort
+      - name: show webhook content
+        run: |
+          echo "Webhook content:"
+          echo "${{ github.event }}"
